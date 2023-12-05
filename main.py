@@ -22,7 +22,22 @@ def ClearRecycleBin() -> None:
     os.system('cmd /c "echo Y|PowerShell.exe -NoProfile -Command Clear-RecycleBin"')
 
 def main() -> None:
-    pass
+    while True:
+        option = int(input(MenuOptions()))
+        if option == 1:
+            ClearTemp()
+        elif option == 2:
+            try:
+                ClearDownloads()
+            except PermissionError:
+                print("You do not have the necessary permissions to delete of the files in this folder!")
+        elif option == 3:
+            ClearRecycleBin()
+        elif option == 4:
+            input("Press enter to exit the application...")
+            sys.exit(0)
+        else:
+            print(f'Option: "{option}" is not a valid option! ')
 
 if __name__ == "__main__":
     main()
