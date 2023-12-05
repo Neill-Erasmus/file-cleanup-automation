@@ -1,5 +1,13 @@
 import os, sys
 
+def MenuOptions() -> str:
+    return """Choose one of the options from the menu below:\n
+                1) Temp Files
+                2) Downloads 
+                3) Recycle Bin
+                4) Exit
+              Option: """
+
 def ClearTemp() -> None:
     for root, dirs, files in os.walk("C://Windows//Temp"):
         for file in files:
